@@ -1,0 +1,53 @@
+ID: SalesApp
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: salesdb
+   type: hdb
+   path: salesdb
+   requires:
+    - name: sales-hdi
+
+ - name: salesjs
+   type: nodejs
+   path: salesjs
+   provides:
+    - name: salesjs_api
+      properties:
+         url: ${default-url}
+   requires:
+    - name: sales-hdi
+    - name: sales-uaa
+   parameters:
+      memory: 128M
+
+ - name: salesui
+   type: html5
+   path: salesui
+   requires:
+    - name: sales-uaa
+    - name: salesjs_api
+      group: destinations
+      properties:
+        name: salesjs_be
+        url: ~{url}
+        forwardAuthToken: true
+   properties:
+      TENANT_HOST_PATTERN: '^(.*)-<space>-salesui.cfapps.(.*).hana.ondemand.com'
+   parameters:
+      memory: 128M
+
+resources:
+ - name: sales-hdi
+   parameters:
+      config:
+         schema: SALES
+         database_id: <guid>
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+ - name: sales-uaa
+   type: com.sap.xs.uaa
+   parameters:
+      path: ./xs-security.json

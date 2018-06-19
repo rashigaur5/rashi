@@ -1,0 +1,11 @@
+{
+	"xsappname": "SalesApp",
+	"scopes": [{
+		"name": "$XSAPPNAME.USER",
+		"description": "Sales App User"
+	}],
+	"role-templates": [{
+		"name": "SalesApp_User",
+		"scope-references": ["$XSAPPNAME.USER"]
+	}]
+}

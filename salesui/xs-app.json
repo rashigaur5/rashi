@@ -1,0 +1,16 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "route",
+	"routes": [{
+		"source": "^/js/(.*)$",
+		"authenticationType": "xsuaa",
+		"scope": "$XSAPPNAME.USER",
+		"destination": "salesjs_be"
+	}, {
+
+		"source": "/(.*)",
+		"authenticationType": "xsuaa",
+		"scope": "$XSAPPNAME.USER",
+		"localDir": "resources"
+	}]
+}
