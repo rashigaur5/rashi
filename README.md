@@ -1,2 +1,1 @@
-SalesApp
-========
+# SalesApp

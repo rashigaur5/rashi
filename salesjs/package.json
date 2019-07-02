@@ -7,19 +7,16 @@
 		"@sap/hdbext": "latest"
 	},
 	"devDependencies": {
-		"gulp": "3.9.1",
-		"gulp-replace": "0.5.4",
-		"jasmine-reporters": "2.1.1",
-		"gulp-jasmine": "2.4.1",
-		"gulp-istanbul": "1.1.1"
+		"jest": "^23.6.0",
+		"jest-junit": "^5.2.0"
 	},
 	"files": [],
 	"main": "server.js",
 	"name": "salesjs",
 	"scripts": {
-		"start": "node server.js",
-		"test": "node ./node_modules/gulp/bin/gulp test",
-		"test-coverage": "node ./node_modules/gulp/bin/gulp test-coverage"
+		"test": "node node_modules/jest/bin/jest --config jest.json",
+		"test-coverage": "node node_modules/jest/bin/jest --coverage --config jest.json",
+		"start": "node server.js"
 	},
 	"engines": {
 		"node": "8.x"

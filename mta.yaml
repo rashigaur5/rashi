@@ -1,5 +1,5 @@
 ID: SalesApp
-_schema-version: '2.0'
+_schema-version: '2.1'
 version: 0.0.1
 
 modules:
@@ -12,6 +12,8 @@ modules:
  - name: salesjs
    type: nodejs
    path: salesjs
+   parameters:
+      memory: 256M
    provides:
     - name: salesjs_api
       properties:
@@ -19,12 +21,12 @@ modules:
    requires:
     - name: sales-hdi
     - name: sales-uaa
-   parameters:
-      memory: 128M
 
  - name: salesui
    type: html5
    path: salesui
+   parameters:
+      memory: 256M
    requires:
     - name: sales-uaa
     - name: salesjs_api
@@ -35,8 +37,6 @@ modules:
         forwardAuthToken: true
    properties:
       TENANT_HOST_PATTERN: '^(.*)-<space>-salesui.cfapps.(.*).hana.ondemand.com'
-   parameters:
-      memory: 128M
 
 resources:
  - name: sales-hdi

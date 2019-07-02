@@ -1,10 +1,10 @@
 {
-	"name": "salesui-approuter",
-	"engines": {
-		"node": ">=4.0.0 <9.0.0"
-	},
+	"name": "salesui",
+	"version": "0.0.1",
+	"description": "",
+	"devDependencies": {},
 	"dependencies": {
-		"@sap/approuter": "5.0.0"
+		"@sap/approuter": "5.11.0"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"

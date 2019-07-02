@@ -1,5 +1,6 @@
 {
 	"xsappname": "SalesApp",
+	"tenant-mode": "shared",
 	"scopes": [{
 		"name": "$XSAPPNAME.USER",
 		"description": "Sales App User"
